@@ -1,0 +1,775 @@
+% !TEX TS-program=xelatex 
+% !Mode:: "TeX:UTF-8"
+\makeatletter\let\ifGm@compatii\relax\makeatother
+\documentclass[12pt]{article}
+\usepackage[headheight=20pt,tmargin=2cm,bmargin=2cm,lmargin=2.5cm,rmargin=2.5cm]{geometry}
+\usepackage[spanish,es-noquoting]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}
+\usepackage[expert,uprightgreek,altbullet]{lucidabr}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{adjustbox}
+\usepackage{tipa}
+\usepackage{pstricks}
+\usepackage{pstricks-add}
+%\usepackage{pst-xkey}
+\usepackage{pst-node}
+\usepackage{pst-jtree}
+\usepackage{pst-asr}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{expex}
+\usepackage{phonrule}
+\usepackage{parskip}
+\usepackage{units}
+\usepackage{fancyhdr}
+\usepackage[autostyle]{csquotes}
+\usepackage{booktabs,tabularx,tabu}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{avm}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+
+\addbibresource{result-reduced.bib}
+
+\graphicspath{{images/}} %Setting the graphicspath
+
+
+
+
+%%%Taken from phonologia-guia
+\usepackage{delarray}
+  \newcommand{\Env}{/ \rule{2em}{.5pt}}%Defines the / _  (the `phonological environment' line
+
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}  
+\everymath={\rm}\let\!\adjoinop
+
+
+\avmoptions{sorted,active}
+\avmvalfont{\rm}
+\avmsortfont{\scriptsize\it}
+
+\newcommand{\PhonRule}[2]{\(
+  \ensuremath
+  \begin{array}[c][ {c} ] 
+  #1
+  \end{array} 
+  \rightarrow 
+  \begin{array}[c][ {c} ] 
+  #2
+  \end{array} 
+  \)
+  }
+  
+  \newcommand{\PhonRuleWithEnv}[3]{
+  \PhonRule{#1}{#2} \Env
+  \(
+  \begin{array}[c][ {c} ] 
+  #3
+  \end{array}
+  \)
+  }
+  
+%%%%%%Hasta aquí
+
+%%% Frampton: spanish features
+\psset{everyasr=\tiershortcuts}
+
+
+\def\feat#1{$[\pm\hbox{#1}]$}%
+\def\ZA#1{$[\hbox{#1}]_{\rlap{\small ZA}}$}%
+\def\ZL#1{$[\pm\hbox{#1}]_{\rlap{\small ZL}}$}%
+\definecolor{fond}{RGB}{240,240,240}
+%%%%
+
+\pagestyle{fancy}
+
+ \lhead{\footnotesize Lengua española I\\
+Grado en Humanidades\\
+Doble Grado en Humanidades y Magisterio de Educación Primaria
+} \chead{} \rhead{}
+
+\lfoot{\texttt{norberto.morenoquibe@uah.es}} \cfoot{} \rfoot{\thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\title{Fonética y Fonología: los sonidos del español}
+\author{Norberto Moreno Quibén\\
+        \small $<$norberto.morenoquibe@uah.es$>$}
+
+\date{}
+
+
+
+
+\begin{document}
+
+%\maketitle
+
+\textbf{\Large Fonética y Fonología: los sonidos del español}
+
+\tableofcontents
+
+Material elaborado a partir de~\textcite{halle1983on-distinctive-featu},~\textcite{gil-fernandez2007fonetica-para-p},~\textcite[volumen \enquote{Fonética y Fonología}][]{rae-asale2009nueva-gramatica-de-l} y~\textcite[capítulo \enquote{Fonética}][]{2016enciclopedia-de-linguistica}.
+
+
+\printbibliography
+
+\vspace{.5cm}
+
+\textbf{\large Espacio de reflexión}
+
+
+Investiga brevemente qué es un \textbf{sonido}. Puedes consultar la entrada de la wikipedia referida al sonido en \href{https://es.wikipedia.org/wiki/Sonido}{https://es.wikipedia.org/wiki/Sonido}.
+
+Supón que un árbol cae en medio del bosque y se produce un gran estruendo aunque no hay nadie para oírlo. Responde a las siguientes preguntas:
+\begin{itemize}
+  \item La caída del árbol, ?`ha provocado un sonido?
+\item La caída del árbol, ?`ha provocado un sonido audible?
+\item Parece que hablamos de sonido en dos sentidos, ?`cuáles serían estos?
+\end{itemize}
+
+
+Aquí tienes varios ejemplo de \textbf{beatboxing}:
+\begin{itemize}
+  \item  \href{https://youtu.be/WrykoPdfXHs}{https://youtu.be/WrykoPdfXHs}
+  \item \href{https://youtu.be/72gvOoT5cEo}{https://youtu.be/72gvOoT5cEo}
+\end{itemize}
+
+
+La práctica del \textit{beatboxing} es un claro ejemplo de sonidos orales sin significado.
+
+\begin{itemize}
+  \item  Investiga, ?`qué es el beatboxing, \href{https://sail.usc.edu/span/beatboxingproject/}{https://sail.usc.edu/span/beatboxingproject/}? 
+\item ?`Cuál es la relevancia del estudio del \textit{beatboxing} para el estudio de los sonidos de las lenguas humanas?
+\end{itemize}
+
+
+\vspace{3cm}
+
+
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+	\begin{psmatrix}[colsep=1.8,rowsep=1.8]
+&	& Sintaxis \\
+&	& \psframebox[linearc=0.2,cornersize=absolute,framesep=6pt]{\tabular{c}Competencia\\ sintáctica\endtabular} \\
+\tabular{c}Fonética\\Fonología\endtabular &  \psframebox[linearc=0.2,cornersize=absolute,framesep=6pt]{\tabular{c}Competencia\\ fonológica\endtabular} &  \psframebox[linearc=0.2,cornersize=absolute,framesep=20pt, fillstyle=solid,fillcolor=fond]{\textbf{Competencia}} & \psframebox[linearc=0.2,cornersize=absolute,framesep=6pt]{\tabular{c}Competencia\\ morfológica\endtabular} & Morfología \\
+& &  \psframebox[linearc=0.2,cornersize=absolute,framesep=6pt]{\tabular{c}Competencia\\ semántica\endtabular} \\
+& & Semántica
+	\end{psmatrix}
+\ncline{2,3}{3,3}
+\ncline{3,2}{3,3}
+\ncline{3,3}{3,4}
+\ncline{3,3}{4,3}
+\ncline[nodesepA=2pt]{->}{1,3}{2,3}
+\ncline{->}{3,1}{3,2}
+\ncline[nodesepA=2pt]{->}{5,3}{4,3}
+\ncline[nodesepA=2pt]{->}{3,5}{3,4}
+\end{adjustbox}
+
+\vspace{2cm}
+
+Una palabra es un objeto simbólico que establece una serie de correspondencias entre las distintas competencias o los distintos componentes: la competencia fonológica, la competencia sintáctica y la competencia semántica.
+
+\vspace{2cm}
+
+\begin{avm}
+	[{} sheep  & &  \\
+	     & {\sc componente fonológico} &  \textipa{/Sip/}  \\
+	     & {\sc componente sintáctico}  &  N  \\
+	     & {\sc componente semántico}   &  \adjustimage{max size={\textwidth}{.05\textheight}}{sheep}]
+	\end{avm}
+
+El propósito de esta unidad es estudiar los elementos que permiten construir las estructuras necesarias para activar la competencia fonológica de los hablantes. 
+
+Qué es, qué información trasmite y cómo usan los hablantes la representación \textipa{/Sip/} que aparece en la estructura de la palabra \textit{sheep}.
+
+\section{Fonética}
+
+	\pex
+\a La \textbf{fonética} estudia los mecanismos de producción y percepción de los sonidos de las lenguas orales.
+\a La \textbf{fonología} estudia cómo se estructuran los sonidos en la competencia de los hablantes para producir significados.
+\xe
+
+
+	La \textbf{fonología} tiene como unidades a los \textbf{fonemas} y a los \textbf{rasgos distintivos}.
+	\pex
+\a Los fonemas establecen \textbf{oposiciones distintivas}.
+\a Las oposiciones distintivas producen diferencias de significado
+\xe
+
+
+	Los fonemas se descubren mediante técnicas lingüísticas: \textbf{pares mínimos}.
+
+\ex Si la substitución de un segmento por otro produce un cambio de significado, este elemento es un \textbf{fonema}.
+\xe
+
+
+	\pex Pares mínimos
+\a	\textipa{[peRo]} pero $\sim$ \textipa{[pero]} perro $\longrightarrow$ \textipa{/R/} y \textipa{/r/} son \textbf{fonemas}.
+\a \textipa{[ban]} y \textipa{[pan]} forman un par mínimo: cambia el significado. $\longrightarrow$ \textipa{/b/} y \textipa{/p/} son \textbf{\ldots}
+\a \textipa{[kaDa]} $\sim$ \textipa{[kada]}: no cambia el significado $\longrightarrow$ \textipa{[D]} no es un fonema.
+\xe
+
+	\pex
+\a \textbf{Fonética articulatoria}: se ocupa de la producción o \textbf{articulación} de los sonidos del habla. 
+\a \textbf{Fonética acústica}: se ocupa de las características físicas de la \textbf{onda sonora} generada por la articulación de los sonidos del habla.
+\xe
+
+
+	\begin{center}
+		\adjustimage{max size={\textwidth}{.8\textheight}}{Cello_front_side}
+		\end{center}
+
+	La caja de resonancia humana está constituida por las cavidades supraglóticas: la \textbf{cavidad oral} y la \textbf{cavidad nasal}.
+	\begin{center}
+		\adjustimage{max size={.95\textwidth}{.8\textheight}}{cavidad}
+		\end{center}
+
+\subsection{La articulación}
+
+
+	Procesos que intervienen en la articulación de los sonidos del español
+\pex
+\a \textbf{Generación de la corriente de aire}: se produce en la cavidad infraglótica. El aire es generado en los pulmones a través de la espiración.
+\a \textbf{Fonación}: actividad de los pliegues vocálicos mediante su vibración (otros modos: voz quebrada, voz de hálito, susurro).
+\a \textbf{Articulación}: configuraciones que adoptan los órganos articuladores en las cavidades supraglóticas (cavidad oral y cavidad nasal).
+\xe
+
+
+
+	Todos los sonidos de las lenguas humanas son el resultado de la intervención de seis articuladores.
+
+\ex \vtop{\halign{%
+#\hfil & \qquad #\hfil 
+\cr
+labios & raíz de la lengua \cr
+paladar blando & dorso de la lengua \cr
+glotis & corona de la lengua (con el ápice)\cr
+}}
+\xe	
+
+
+
+
+	Los sonidos consonánticos se clasifican atendiendo a tres propiedades.
+	\pex
+\a	\textbf{Modo de articulación}: la forma en la que la que el aire sale a través de la cavidad oral.
+\a	\textbf{Punto de articulación}: el lugar de la cavidad oral en la que se produce el obstáculo para la salida del aire.
+ \a	\textbf{Actividad de las cuerdas vocales}: si existe o no vibración de las cuerdas vocales durante la salida del aire.
+\xe
+
+
+
+
+
+
+	\subsubsection{Punto de articulación}
+		\begin{center}
+		\adjustimage{max size={\textwidth}{.8\textheight}}{cavidad-oral}
+		\end{center}
+
+
+
+\subsection{Modo de articulación}
+
+	\subsubsection{Modo de articulación: Obstruyentes}
+	
+	Las consonantes \textbf{obstruyentes} se caracterizan por un cierre total o parcial de la cavidad oral.
+	\pex
+\a \textbf{Oclusivas}: cierre total. \textipa{[p][t][k]} $\sim$ \textipa{[b][d][g]} (sonoras) 
+\a \textbf{Fricativas}: cierre parcial con fricción del aire. \textipa{[f],[T][s],[x]} y \textipa{[J]}, palatal sonora en el sistema yeísta del español peninsular; \textipa{[Z]}, prepalatal sonora en el sistema yeísta del español de América del Sur.
+\a \textbf{Africadas}: Obstáculo total (oclusión) + obstáculo parcial (fricación): [\texttoptiebar{\textteshlig}]
+\xe	
+
+
+
+
+	\subsubsection{Modo de articulación: Nasales}
+	Las consonantes \textbf{nasales}  se caracterizan porque durante su realización \textbf{el canal bucal está cerrado} y el aire sale por la cavidad nasal.
+\pex Son segmentos sonoros.
+\a	\textipa{[m]}, (bilabial nasal), \textipa{[M]}, (labiodental nasal). 
+\a	\textipa{[n]}, (alveolar nasal), \textipa{[N]}, (velar nasal).
+\a\relax	[\textltailn], (palatal nasal).
+\xe
+	
+
+
+\subsubsection{Modo de articulación: Aproximantes}
+Las consonantes \textbf{aproximantes} se caracterizan por un canal de salida del aire más ancho que en las fricativas y por la ausencia de fricción y turbulencia.
+
+\pex Son segmentos sonoros.
+\a \textipa{[B]}, (bilabial aproximante).
+\a \textipa{[D]}, (dental aproximante).
+\a	\textipa{[G]}, (velar aproximante).
+\xe
+ 	 
+
+
+\subsubsection{Modo de articulación: Laterales}
+En las consonantes \textbf{laterales} el aire sale por los laterales de la boca mientras permanece obstruido el canal central.
+
+\pex Son segmentos sonoros.
+\a\relax \textipa{[l]}, (alveolar lateral).
+\a\relax [\textlambda], (palatal lateral, solo en el subsistema distinguidor o no yeísta, núcleos rurales de Castilla y León)
+\xe
+
+
+
+\subsubsection{Modo de articulación: Vibrantes}
+
+Las consonantes \textbf{vibrantes} o \textbf{róticas} se caracterizan por la sucesión de cierre y abertura del canal oral.
+
+\pex Son segmentos sonoros.
+\a \textipa{[R]}, (vibrante simple o percusiva alveolar).
+\a	\textipa{[r]}, (vibrante múltiple alveolar).
+\xe
+
+
+
+\subsection{Vocales}
+
+	
+	Las vocales del español se definen por dos parámetros:
+	
+	\pex
+\a  la \textbf{abertura oral}: distancia entre la lengua y la pared superior de la cavidad bucal (alta, media y baja);
+\a la \textbf{posición de la lengua}: anterior (parte delantera de la cavidad bucal), central y posterior (parte trasera).
+\xe
+
+
+
+
+		\begin{center}
+		\adjustimage{max size={.95\textwidth}{.8\textheight}}{vocales-chart}
+		\end{center}
+
+
+
+\subsection{Ejercicios}
+
+Ejercicios sobre articulación
+
+	Para familiarizarte más con los símbolos fonéticos del \textbf{Alfabeto Fonético
+Internacional}, pronuncia estos sonidos tanto aislados como insertos entre dos vocales 
+	\textit{a} \ldots \textit{a}:
+	
+	
+	\ex	\textipa{[	d	\quad S	\quad \textteshlig	 \quad	R	\quad B \quad 	G	\quad J	\quad \textltailn	\quad z 	\quad S	]}
+\xe
+	
+
+
+
+	Realiza los pequeños experimentos siguientes para percibir físicamente la diferencia entre las cualidades de los sonidos:
+	
+\pex
+\a	Coloca tu dedo índice sobre la nuez y pronuncie primero \textipa{[p]} y
+luego \textipa{[b]}. ?`Cuál de los dos dirías
+ que es el sonido sonoro? Prueba ahora con \textipa{[s]} y con \textipa{[i]}.
+\a	Tápate los oídos y repita esos mismos sonidos. ?En cuál o cuáles
+de ellos sigues percibiendo la fonación?
+\a	Pronuncia las palabras castellanas \textit{zapato}, \textit{cielo}, \textit{azúl} y \textit{zona} con un
+dedo en los labios (como cuando se pide silencio). Comprueba si
+el dedo se moja o no y relaciona ese hecho con las características
+articulatorias del sonido de la letra \textit{z}, \textipa{T} .
+\xe
+
+
+
+
+	Articula en silencio las siguientes secuencias de palabras, fijándote en cómo la boca va cerrándose progresivamente a medida que cambian las vocales:
+	\pex
+\a	paso - peso - piso
+\a	paso - poso - puso
+\xe
+
+Ahora pronuncia otra vez estas palabras, pero mordiendo a la vez la parte posterior de un lápiz de modo que los dientes estén separados
+aproximadamente 1 cm y sin que los movimientos de la lengua se vean interferidos. Manteniendo así rígida la mandíbula, trata de tomar
+conciencia claramente de los diferentes grados de elevación de la lengua.
+
+
+
+\section{Fonología}
+
+
+\begin{adjustbox}{max size={.9\textwidth}{\textheight}}
+\begin{psmatrix}[colsep=1cm,rowsep=.55cm,mcol=l]%
+  formas subyacentes & \psframebox[linewidth=2pt,framesep=.5em,linecolor=red]{procesos fonológicos}              &  formas fonéticas\\[0pt]
+ fonemas & reglas fonológicas & alófonos o sonidos\\[0pt]
+ objetos mentales & \parbox[t]{3cm}{son producto de la competencia del hablante}  & objetos físicos\\[0pt]
+ no se pronuncian &contextos fonéticos & se pronuncian\\
+ Entre \textipa{/}\ldots\textipa{/}& \textipa{/}\ldots\textipa{/} $\rightarrow$ \textipa{[}\ldots\textipa{]} $/$A $\rule{2em}{.5pt}$ B &Entre \textipa{[}\ldots\textipa{]}
+  \psset{arrows=->,labelsep=3pt,nodesep=3pt}
+\ncline{1,1}{1,2}%
+\ncline{1,2}{1,3}%
+\end{psmatrix}
+\end{adjustbox}
+
+
+\subsection{Fonemas}
+
+
+	\begin{center}
+		\adjustimage{max size={.95\textwidth}{.8\textheight}}{melania-fonema-01}
+		\end{center}
+
+
+
+	El fonema \textipa{/b/} y sus alófonos\\
+\begin{figure}
+  \includegraphics{minimal-b.pdf}
+  \end{figure}
+
+
+
+
+	\begin{center}
+		\adjustimage{max size={.95\textwidth}{.8\textheight}}{melania-fonema-02}
+		\end{center}
+
+
+
+
+	El fonema \textipa{/g/} y sus alófonos\\
+\begin{figure}
+\includegraphics{minimal-g.pdf}
+\end{figure}
+
+
+
+	\begin{center}
+\adjustimage{max size={.95\textwidth}{.8\textheight}}{melania-fonema-03}
+		\end{center}
+
+
+
+	El fonema \textipa{/d/} y sus alófonos\\
+\begin{figure}
+  \includegraphics{minimal-ph.pdf}
+  \end{figure}
+
+
+
+
+	\begin{center}
+\adjustimage{max size={.95\textwidth}{.8\textheight}}{melania-fonema-04}
+		\end{center}
+
+
+
+	El fonema \textipa{/n/} y sus alófonos\\
+\newbox{\Myn}
+\begin{lrbox}{\Myn}
+\includegraphics{minimal-n.pdf}
+\end{lrbox}
+\scalebox{.9}{\usebox{\Myn}}
+
+
+
+%
+%	\ex
+%	\begin{adjustbox}{max size={\textwidth}{\textheight}}
+%	\begin{tabular}{ l c l c l }
+%	formas subyacentes &		$\rightarrow$ & \psframebox[linewidth=2pt,framesep=.5em,linecolor=red]{procesos fonológicos} & $\rightarrow$ & formas fonéticas \\
+%		\end{tabular}
+%		\end{adjustbox}
+%\xe
+%
+
+
+
+
+
+
+
+
+\subsection{Rasgos distintivos}
+
+
+ \textbf{Rasgo distintivo}: cada uno de los elemementos constitutivos de un fonema cuya variación da lugar a un \textbf{contraste significativo}.
+ 
+ Los rasgos distintivos se organizan en \textbf{clases de rasgos}.
+
+
+
+
+
+
+
+Rasgos distintivos participantes en las representaciones fonológicas del español
+
+
+
+\begin{adjustbox}{max size={.9\textwidth}{\textheight}}
+\newtier{place,subplace}
+\def\feat#1{$[\pm\hbox{#1}]$}%
+\def\ZA#1{$[\hbox{#1}]_{\rlap{\small ZA}}$}%
+\def\ZL#1{$[\pm\hbox{#1}]_{\rlap{\small ZL}}$}%
+\asr[xgap=7em,ph=0 (A) 1ex,reptype=nots,sy=(ph) 15ex 0ex 3.5ex,place=(ph) -15ex ($[$) 1ex,subplace=(place) -10ex ($[$) 1ex,linewidth=.5pt]
+{\ZL{sonoro}}{\feat{continuo}}{\feat{estridente}}{\feat{lateral}}{\feat{nasal}}{Lugar}|
+\@(2.5,sy){\(\left[\begin{matrix} \pm\hbox{consonántico} \\ \pm \hbox{sonante}\end{matrix}\right]\)}%
+\-(0,ph) \-(1,ph) \-(2,ph) \-(3,ph) \-(4,ph) \-(5,ph)
+\@(0,place){\ZA{labial}}\-(5,ph)
+\@(1.5,place){\ZA{coronal}}\-(5,ph)
+\@(4,place){\ZA{dorsal}}\-(5,ph)
+\@(0,subplace){\feat{redondeado}}\-(0,place)
+\@(1,subplace){\feat{anterior}}\-(1.5,place)
+\@(2,subplace){\feat{distribuido}}\-(1.5,place)
+\@(3,subplace){\feat{alto}}\-(4,place)
+\@(3.6,subplace){\feat{bajo}}\-(4,place)
+\@(4.6,subplace){\feat{retraído}}\-(4,place)|
+\endasr
+ \end{adjustbox}
+
+
+
+	\pex Rasgos de Raíz: \feat{consonántico}
+
+\a +consonántico: Consonantes. Flujo de aire con obstáculo. /\textipa{p}/, /\textipa{b}/, /\textipa{t}/, /\textipa{d}/, /\textipa{k}/, /\textipa{g}/, /\textipa{f}/, /\textipa{T}/ (solo en el subsistema no seseante del español centropeninsular), /\textipa{s}/, /\texttoptiebar{\textteshlig}/, /\textipa{x}/, /\textipa{J}/, /\textipa{m}/, /\textipa{n}/, /\textltailn/, /\textipa{l}/, /\textipa{R}/, /\textipa{r}/ (/$\lambda$/ en el subsistema no yeísta, /\textipa{Z}/ en el subsistema yeísta del español de América del Sur).
+
+\a $-$consonántico: Vocales. Flujo de aire sin obstáculo. /\textipa{a}/, /\textipa{e}/, /\textipa{i}/, /\textipa{o}/, /\textipa{u}/.
+\xe
+
+
+
+	
+\pex  Rasgos de Raíz:	\feat{sonante}
+\a  +sonante: Vocales, nasales y vibrantes. El aire fluye sin obstáculo ni fricción. /\textipa{a}/, /\textipa{e}/, /\textipa{i}/, /\textipa{o}/, /\textipa{u}, /\textipa{m}/, /\textipa{n}/, /\textltailn/, /\textipa{l}/, /\textipa{R}/, /\textipa{r}/.
+\a -sonante: Obstruyentes (oclusivas, fricativas y africadas). Explosión o fricción. /\textipa{p}/, /\textipa{b}/, /\textipa{t}/, /\textipa{d}/, /\textipa{k}/, /\textipa{g}/, /\textipa{f}/, /\textipa{T}/ (solo en el subsistema no seseante del español centropeninsular), /\textipa{s}/, /\texttoptiebar{\textteshlig}/, /\textipa{x}/, /\textipa{J}/ (y /\textipa{Z}/ en el subsistema yeísta del español de América del Sur).
+\xe
+
+
+
+	\pex Rasgos Laríngeos: \ZL{sonoro}
+
+\a Tipo de fonación: vibración de los pliegues vocálicos.
+\a Son sonoros los segmentos vocales, nasales, laterales, vibrantes, y algunas oclusivas (/\textipa{b}/, /\textipa{d}/ y /\textipa{g}/) y fricativas (/\textipa{J}/ y /\textipa{Z}/).
+\a $-$sonoro: el resto de segmentos.
+\xe
+
+
+
+
+	\pex Rasgos de Modo de Articulación: \feat{continuo}
+\a +continuo: El obstáculo al flujo del aire es parcial. Vocales, fricativos, y vibrante múltiple. /\textipa{a}/, /\textipa{e}/, /\textipa{i}/, /\textipa{o}/, /\textipa{u},  /\textipa{f}/, /\textipa{T}/, /\textipa{s}/, /\textipa{x}/, /\textipa{J}/, /\textipa{r}/.
+\a $-$continuo: El obstáculo es total. Oclusivos, nasales, africados, laterales y vibrante simple. /\textipa{p}/, /\textipa{b}/, /\textipa{t}/, /\textipa{d}/, /\textipa{k}/, /\textipa{g}/, /\textipa{m}/, /\textipa{n}/, /\textltailn/ /\texttoptiebar{\textteshlig}/, /\textipa{l}/, /$\lambda$/, /\textipa{R}/.
+\xe
+
+
+
+
+	\pex Rasgos de Modo de Articulación: \feat{estridente}
+\a +estridente. Fricción con turbulencia. /\textipa{f}/ y /\textipa{s}/
+\a  $-$estridente. Resto de segmentos.
+\xe
+
+
+
+
+	\pex Rasgos de Modo de Articulación: \feat{lateral}
+\a +lateral. el aire sale por los lados de la boca. /\textipa{l}/ y /$\lambda$/ en el subsistema no yeísta.
+\a  $-$lateral. Resto de segmentos (los segmentos vibrantes son $-$lateral y $-$nasal).
+\xe
+
+
+
+
+	\pex Rasgos de Modo de Articulación: \feat{nasal}
+\a +nasal: La cavidad nasal actúa como resonador suplementario. /\textipa{m}/, /\textipa{n}/, /\textltailn/.
+\a $-$nasal: el resto de segmentos.
+\xe
+
+
+
+
+
+
+	\pex Rasgos de Lugar o Zona de Articulación: mención del articulador activo.
+\a \ZA{labial} \quad: labios inferiores. /\textipa{p}/, /\textipa{b}/, /\textipa{f}/, /\textipa{m}/.
+\a \ZA{coronal} \quad: corona de la lengua. /\textipa{t}/, /\textipa{d}/, /\textipa{T}/, /\textipa{s}/, /\textipa{n}/, /\textipa{R}/, /\textipa{r}/, /\texttoptiebar{\textteshlig}/, /\textipa{J}/, /\textltailn/, /$\lambda$/.
+\a \ZA{dorsal} \quad : dorso de la lengua. /\textipa{k}/, /\textipa{g}/, /\textipa{x}/.
+\xe
+
+
+
+
+\pex Rasgos de zona labial: \feat{redondeado}
+\a	+redondeado: grado medio de redondeamiento labial. /\textipa{o}/, /\textipa{u}/
+\a	$-$redondeado: sin redondeamiento labial. /\textipa{p}/, /\textipa{b}/, /\textipa{m}/, /\textipa{f}/
+\xe	
+
+
+
+
+
+
+	La zona coronal se divide en dos áreas:
+	\begin{center}
+\adjustimage{max size={.8\textwidth}{.8\textheight}}{coronal}
+		\end{center}	
+
+
+
+	\pex Rasgos de zona coronal: \feat{anterior}
+\a	+anterior: La corona de la lengua se desplaza hacia la parte delantera de la boca. /\textipa{t}/, /\textipa{d}/, /\textipa{T}/, /\textipa{n}/, /\textipa{l}/, /\textipa{R}/, /\textipa{r}/, /\textipa{s}/
+\a	$-$anterior: La corona de la lengua se desplaza hacia la parte posterior de la zona central de la boca. /\texttoptiebar{\textteshlig}/, /\textipa{J}/, /\textipa{Z}/, /\textltailn/.
+\xe
+
+
+
+
+	\pex	Rasgos de zona coronal: \feat{distribuido}
+\a	+distribuido: La lengua toca con una parte amplia la zona del obstáculo. /\textipa{T}/, /\textipa{J}/, /\textipa{Z}/, /\textipa{s}/, /\textltailn/.
+\a $-$distribuido: La lengua toca en un punto, con el ápice normalmente. /\textipa{t}/, /\textipa{d}/, /\texttoptiebar{\textteshlig}/, /\textipa{l}/, /\textipa{n}/, /\textipa{R}/, /\textipa{r}/. 
+\xe
+
+
+
+
+	\pex	Rasgos de zona dorsal: \feat{retraído}, \feat{alto} y \feat{bajo}
+\a +retraído, +alto: Segmentos velares, el dorso de la lengua se retrae y sube. /\textipa{k}/, /\textipa{g}/, /\textipa{x}/.
+\a	+alto: Vocales altas. /\textipa{i}/,/\textipa{u}/.
+\a $-$alto, $-$bajo: Vocales medias. /\textipa{e}/, /\textipa{o}/.
+\a +bajo: Vocal central. /\textipa{a}/.
+\xe
+
+\newpage
+
+\begin{sideways}
+	\scalebox{.7}{%
+	\begin{tabular}{@{}llccccccccccccccccc|ccccccc@{}} 
+& & /\textipa{i}/ & /\textipa{e}/	& /\textipa{a}/	& /\textipa{o}/	& /\textipa{u}/ & /\textipa{p}/ & /\textipa{t}/ & /\textipa{k}/ & /\textipa{b}/	& /\textipa{d}/ & /\textipa{g}/ & /\textipa{f}/ & /\textipa{T}/	& /\textipa{s}/	& /\textipa{x}/ & /\textipa{J}/ &\multicolumn{2}{c}{/\texttoptiebar{\textteshlig}/} & /\textipa{l}/ & /\textipa{m}/ & /\textipa{n}/ & /\textltailn/ & /\textipa{R}/ & /\textipa{r}/\\\cmidrule{1-2}
+\textsc{consonante} & & $-$ & $-$	& $-$	& $-$	& $-$ & + & + & +	& +	& + & +	& + & + & + & + & + &\multicolumn{2}{c}{+}& + & + & + & + & + & + \\\cmidrule{1-2}
+\textsc{sonante} & & + & +	& +	& +	& + & $-$ & $-$ & $-$ & $-$	& $-$ & $-$ & $-$ & $-$ &  $-$ & $-$ & $-$ &\multicolumn{2}{c}{$-$} & + & + & + & + & + & + \\\cmidrule{1-2}
+\textsc{continuo} & & + & +	& +	& +	& + & $-$ & $-$ & $-$ & $-$ & $-$ & $-$	& + & + & + & + & + & $-$  & +	& $-$	& $-$ & $-$ & $-$ & $-$ & + \\\cmidrule{1-2}
+\textsc{estridente} & &  & 	& 	& 	&   &     &     &     &     &      &   + & + & $-$ & +	& $-$ & $-$ &\multicolumn{2}{c}{}   & & & & & & \\\cmidrule{1-2}
+\textsc{lateral}    & &  & 	& 	& 	&   &     &     &     &     &      &   & & & & & &\multicolumn{2}{c}{}  & + & & & & $-$ & $-$ \\\cmidrule{1-2}
+\textsc{nasal}      & &  & 	& 	& 	&   &     &     &     &     &      & & & & & & & \multicolumn{2}{c}{} & & + & + & + & $-$ & $-$ \\\cmidrule{1-2}
+\textsc{sonoro}     & & + & +& +	& +	& + & $-$ & $-$ & $-$ & +   & +    & + & $-$ & $-$ & $-$ & $-$ & + &\multicolumn{2}{c}{$-$} & + & + & + & + & + & + \\\cmidrule{1-2}
+\textsc{labial} & \textsc{redondeado} &  & 	& 	& +	& + & $-$ & & & $-$ & & & $-$ & & & & &\multicolumn{2}{c}{} & & $-$ & & & \\\cmidrule{1-2}
+\multirow{2}*{\textsc{coronal}} & \textsc{anterior} &  & 	& 	& 	& & & + & & & + & & & + & + & & $-$ &\multicolumn{2}{c}{$-$} & + & & + & $-$ & + & +\\ \cmidrule{2-2}
+ & \textsc{distribuido} 	& 	& 		& 		& 		& &  & $-$ & & & $-$ & &  & $-$ & $-$ & & + &\multicolumn{2}{c}{$-$} & $-$	& & $-$ & + & $-$ & $-$ \\\cmidrule{1-2}
+ \multirow{3}*{\textsc{dorsal}} & \textsc{alto} & +  & $-$	& $-$	& $-$ 	&  +	& & & $+$ & & & + & & & & + & &\multicolumn{2}{c}{} & & & & & & \\\cmidrule{2-2}
+ 	 					& \textsc{bajo} & $-$  & $-$ 	&  +	& $-$	& $-$ & & & & & & & & & & &\multicolumn{2}{c}{} & & & & & & \\ \cmidrule{2-2}
+						& \textsc{retraído} & $-$ & $-$	& +	& +	& +  & & & + & & & + & & & & + & &\multicolumn{2}{c}{} & & & & && \\\hline 
+\end{tabular}%
+}
+ \end{sideways}
+
+\newpage
+
+\subsection{Procesos fonológicos}
+
+
+\pex \textbf{Fricativización} de las oclusivas sonoras
+\a	\phonb{\textipa{b}}{\textipa{B}}{V}{V}\trailingcitation{[Espirantización]}
+\a	\phonb{\textipa{g}}{\textipa{G}}{V}{V}
+\a	\phonb{\textipa{d}}{\textipa{D}}{V}{V}
+\xe
+
+
+
+
+Los procesos fonológicos: activación de los rasgos distintivos
+
+\ex
+\begin{adjustbox}{max size={.9\textwidth}{\textheight}}	
+	\(
+  \begin{array}[c][ {l} ] 
+ +consonántico \\ -sonante \\ +sonoro\\ -continuo\\ -estridente 
+  \end{array} 
+ \rightarrow \begin{array}[c] [ {l} ] 
+   +consonántico \\ -sonante  \\+sonoro\\+continuo\\ -estridente
+  \end{array}  / \begin{array}[c] [ {l} ] 
+  -consonántico\\ +sonante \\ +continuo
+    \end{array} \rule{2em}{.5pt} 
+  \begin{array}[c] [ {l} ] 
+  -consonántico\\ +sonante \\ +continuo
+    \end{array}
+  \)
+  \end{adjustbox}
+\xe
+
+
+
+
+\textbf{Rotacismo} en el español del sur (Andalucía y Canarias) 
+
+\ex \vtop{\halign{%
+#\hfil & \qquad #\hfil 
+\cr
+a.\quad	caldo & [\textipa{'kaRdo}] \cr
+b.\quad	Huelva & [\textipa{'weRBa}] \cr
+c.\quad	calma & [\textipa{'kaRma}]\cr
+d.\quad	sal & [\textipa{'saR}]\cr
+}}
+\xe
+
+Sin embargo
+
+
+\ex \vtop{\halign{%
+#\hfil & \qquad #\hfil 
+\cr
+a.\quad	losa & [\textipa{'losa}] \cr
+b.\quad	lata & [\textipa{'lata}] \cr
+c.\quad	pleamar & [\textipa{plea'maR}]\cr
+}}
+\xe
+
+
+
+ 
+ Describe el fenómeno en términos fonológicos y sugiere la regla implicada.
+ 
+ Ante consonante o final de palabras.
+ 
+ \pex
+ \a \phonr{\textipa{l}}{\textipa{R}}{C}
+ \a  \phonr{\textipa{l}}{\textipa{R}}{\#\#}
+ \a \phonc{\textipa{l}}{\textipa{R}}\oneof{
+\phold C \\
+\phold \#\#}
+\xe
+ 
+	
+
+
+
+\textbf{Lambdacismo} en el español caribeño. 
+
+\ex \vtop{\halign{%
+#\hfil & \qquad #\hfil 
+\cr
+a.\quad	comer & [\textipa{ko'mel}] \cr
+b.\quad	abrir & [\textipa{a'BRil}] \cr
+c.\quad	verdad & [\textipa{bel'da}]\cr
+d.\quad	amor & [\textipa{a'mol}]\cr
+e.\quad	carta & [\textipa{'kalta}]\cr
+}}
+\xe
+
+
+
+ 
+ Describe el fenómeno en términos fonológicos y sugiere la regla implicada.
+ 
+ Ante consonante o final de palabras.
+ 
+ \pex
+ \a \phonr{\textipa{R}}{\textipa{l}}{C}
+ \a  \phonr{\textipa{R}}{\textipa{l}}{\#\#}
+ \a \phonc{\textipa{R}}{\textipa{l}}\oneof{
+\phold C \\
+\phold \#\#}
+\xe
+ 
+
+
+
+\end{document}

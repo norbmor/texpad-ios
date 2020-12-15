@@ -1,0 +1,31 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX TS-program=lualatex	
+% !BIB TS-program = biber
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage{lmodern}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{parskip}
+\usepackage{tipa}
+%\usepackage[anythingbreaks]{breakurl}
+
+
+
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{result-reduced.bib}
+
+\title{Bibliography}
+
+\begin{document}
+
+
+\maketitle
+
+
+
+
+\nocite{*}
+\printbibliography 
+\end{document}

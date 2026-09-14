@@ -1,0 +1,75 @@
+% Reproduction of "con-quien-04-flex" (originally pst-jtree) using forest.
+% Compile with pdflatex/xelatex/lualatex.
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[linguistics]{forest}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{forest}
+  for tree={
+    parent anchor=south,
+    child anchor=north,
+    align=center,
+    inner sep=2pt,
+    s sep=1.1em,
+    l sep=1.7em,
+  }
+[SC
+  [{SP$_k$ [+qu]}, name=SPk
+    [P'
+      [P [con]]
+      [SN
+        [N'
+          [N [{quién [+qu]}]]
+        ]
+      ]
+    ]
+  ]
+  [C'
+    [{C$_{[+Q,+qu]}$}
+      [FLEX$_j$, name=FLEXj
+        [V$_i$ [bailó, name=bailo]]
+        [T]
+      ]
+      [{C$_{[+Q,+qu]}$}]
+    ]
+    [SFLEX
+      [SN
+        [la muchacha, roof]
+      ]
+      [FLEX'
+        [h$_j$, name=hj,
+          tikz={
+            \draw[-latex, cyan!60!blue, thick, rounded corners=8pt]
+              let \p1 = (hj.south), \p2 = (bailo.south), \p3 = (FLEXj.south) in
+              (\p1) -- (\x1,\y2-0.6em) coordinate (fcA) -- (\x3,\y2-0.6em) coordinate (fcB) -- (\p3);
+            \node[cyan!60!blue, font=\tiny, yshift=-0.8em] at ($(fcA)!0.5!(fcB)$) {FLEX$\to$C};
+          }]
+        [SV
+          [V'
+            [V'
+              [h$_i$, name=hi,
+                tikz={
+                  \draw[-latex, red!80!black, thick, rounded corners=8pt]
+                    let \p1 = (hi.south), \p2 = (hj) in
+                    (\p1) -- (\x2,\y1) coordinate (vfMid) -- (hj.south);
+                  \node[red!80!black, font=\tiny, yshift=-0.8em] at (vfMid) {V$\to$FLEX};
+                }]
+            ]
+            [h$_k$, name=hk,
+              tikz={
+                \draw[-latex, blue, thick, rounded corners=8pt]
+                  let \p1 = (hk.south), \p2 = (hi.south), \p3 = (SPk.west) in
+                  (\p1) -- (\x1,\y2-1.5em) coordinate (mqA) -- (\x3,\y2-1.5em) coordinate (mqB) -- (\p3);
+                \node[blue, font=\scriptsize\itshape, yshift=-0.9em] at ($(mqA)!0.5!(mqB)$) {Movimiento-qu};
+              }]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+\end{document}

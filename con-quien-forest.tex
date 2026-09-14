@@ -42,16 +42,19 @@
       [FLEX'
         [h$_j$, name=hj,
           tikz={
-            \draw[-latex, cyan!60!blue, thick] (hj) to[bend right=20] (FLEXi.south);
-            \node[cyan!60!blue, font=\tiny] at ($(hj)!0.5!(FLEXi.south)$) [yshift=-1em] {FLEX$\to$C};
+            \coordinate (flexcFloor) at ($(hj.south)+(0,-1.3em)$);
+            \draw[-latex, cyan!60!blue, thick, rounded corners=8pt]
+              (hj.south) -- (hj.south -| flexcFloor) -- (FLEXi.south -| flexcFloor) -- (FLEXi.south);
+            \node[cyan!60!blue, font=\tiny] at ($(hj.south -| flexcFloor)!0.5!(FLEXi.south -| flexcFloor)$) [yshift=-0.8em] {FLEX$\to$C};
           }]
         [SV
           [V'
             [V'
               [h$_i$, name=hi,
                 tikz={
-                  \draw[-latex, red!80!black, thick] (hi) to[bend right=25] (hj);
-                  \node[red!80!black, font=\tiny] at ($(hi)!0.5!(hj)$) [xshift=-1.4em] {V$\to$FLEX};
+                  \draw[-latex, red!80!black, thick, rounded corners=8pt]
+                    (hi.south) -- (hj -| hi.south) -- (hj.south);
+                  \node[red!80!black, font=\tiny] at ($(hi.south)!0.5!(hj -| hi.south)$) [yshift=-0.8em] {V$\to$FLEX};
                 }]
             ]
             [h$_k$, name=hk,

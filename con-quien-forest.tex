@@ -1,6 +1,8 @@
 % Reproduction of "con-quien-04-flex" (originally pst-jtree) using forest.
 % Compile with pdflatex/xelatex/lualatex.
 \documentclass[tikz,border=8pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[linguistics]{forest}
 \usetikzlibrary{calc}
 
@@ -16,32 +18,32 @@
     l sep=1.7em,
   }
 [SC
-  [{SP\textsubscript{k}\\{\scriptsize[+qu]}}, name=SPk
+  [{SP$_k$ [+qu]}, name=SPk
     [P'
       [P [con]]
       [SN
         [N'
-          [N [{qui\'en\\{\scriptsize[+qu]}}]]
+          [N [{quién [+qu]}]]
         ]
       ]
     ]
   ]
   [C'
-    [{C\textsubscript{[+Q,+qu]}}
-      [FLEX\textsubscript{i}, name=FLEXi
-        [V\textsubscript{i} [bail\'o]]
+    [{C$_{[+Q,+qu]}$}
+      [FLEX$_i$, name=FLEXi
+        [V$_i$ [bailó]]
         [T]
       ]
-      [{C\textsubscript{[+Q,+qu]}}]
+      [{C$_{[+Q,+qu]}$}]
     ]
     [SFLEX
       [SN, roof [la muchacha]]
       [FLEX'
-        [h\textsubscript{j}, name=hj]
+        [h$_j$, name=hj]
         [SV
           [V'
-            [V' [h\textsubscript{i}, name=hi]]
-            [h\textsubscript{k}, name=hk]
+            [V' [h$_i$, name=hi]]
+            [h$_k$, name=hk]
           ]
         ]
       ]

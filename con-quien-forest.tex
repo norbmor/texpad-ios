@@ -56,8 +56,10 @@
             ]
             [h$_k$, name=hk,
               tikz={
-                \draw[-latex, blue, thick] (hk) to[out=-100, in=-80, looseness=1.8] (SPk.west);
-                \node[blue, font=\scriptsize\itshape] at ($(hk)!0.5!(SPk.west)+(0,-3em)$) {Movimiento-qu};
+                \coordinate (movQuFloor) at ($(hi.south)+(0,-1.5em)$);
+                \draw[-latex, blue, thick, rounded corners=8pt]
+                  (hk.south) -- (hk.south -| movQuFloor) -- (SPk.west -| movQuFloor) -- (SPk.west);
+                \node[blue, font=\scriptsize\itshape] at ($(hk.south -| movQuFloor)!0.5!(SPk.west -| movQuFloor)$) [yshift=-0.9em] {Movimiento-qu};
               }]
           ]
         ]

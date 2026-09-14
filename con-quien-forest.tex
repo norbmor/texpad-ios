@@ -29,8 +29,8 @@
   ]
   [C'
     [{C$_{[+Q,+qu]}$}
-      [FLEX$_i$, name=FLEXi
-        [V$_i$ [bailó]]
+      [FLEX$_j$, name=FLEXj
+        [V$_i$ [bailó, name=bailo]]
         [T]
       ]
       [{C$_{[+Q,+qu]}$}]
@@ -43,8 +43,8 @@
         [h$_j$, name=hj,
           tikz={
             \draw[-latex, cyan!60!blue, thick, rounded corners=8pt]
-              let \p1 = (hj.south), \p2 = (FLEXi.south) in
-              (\p1) -- (\x1,\y1-1.3em) coordinate (fcA) -- (\x2,\y1-1.3em) coordinate (fcB) -- (\p2);
+              let \p1 = (hj.south), \p2 = (bailo.south), \p3 = (FLEXj.south) in
+              (\p1) -- (\x1,\y2-0.6em) coordinate (fcA) -- (\x3,\y2-0.6em) coordinate (fcB) -- (\p3);
             \node[cyan!60!blue, font=\tiny, yshift=-0.8em] at ($(fcA)!0.5!(fcB)$) {FLEX$\to$C};
           }]
         [SV

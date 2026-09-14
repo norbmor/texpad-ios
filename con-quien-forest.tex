@@ -7,7 +7,6 @@
 \usetikzlibrary{calc}
 
 \begin{document}
-\begin{tikzpicture}
 \begin{forest}
   for tree={
     parent anchor=south,
@@ -39,11 +38,25 @@
     [SFLEX
       [SN, roof [la muchacha]]
       [FLEX'
-        [h$_j$, name=hj]
+        [h$_j$, name=hj,
+          tikz={
+            \draw[-latex, cyan!60!blue, thick] (hj) to[bend right=20] (FLEXi.south);
+            \node[cyan!60!blue, font=\tiny] at ($(hj)!0.5!(FLEXi.south)$) [yshift=-1em] {FLEX$\to$C};
+          }]
         [SV
           [V'
-            [V' [h$_i$, name=hi]]
-            [h$_k$, name=hk]
+            [V'
+              [h$_i$, name=hi,
+                tikz={
+                  \draw[-latex, red!80!black, thick] (hi) to[bend right=25] (hj);
+                  \node[red!80!black, font=\tiny] at ($(hi)!0.5!(hj)$) [xshift=-1.4em] {V$\to$FLEX};
+                }]
+            ]
+            [h$_k$, name=hk,
+              tikz={
+                \draw[-latex, blue, thick] (hk) to[out=-100, in=-80, looseness=1.8] (SPk.west);
+                \node[blue, font=\scriptsize\itshape] at ($(hk)!0.5!(SPk.west)+(0,-3em)$) {Movimiento-qu};
+              }]
           ]
         ]
       ]
@@ -51,14 +64,4 @@
   ]
 ]
 \end{forest}
-% --- movement arrows, drawn in the same tikzpicture that forest nested into ---
-\draw[-latex, red!80!black, thick] (hi) to[bend right=25] (hj);
-\node[red!80!black, font=\tiny] at ($(hi)!0.5!(hj)$) [xshift=-1.4em] {V$\to$FLEX};
-
-\draw[-latex, cyan!60!blue, thick] (hj) to[bend right=20] (FLEXi.south);
-\node[cyan!60!blue, font=\tiny] at ($(hj)!0.5!(FLEXi.south)$) [yshift=-1em] {FLEX$\to$C};
-
-\draw[-latex, blue, thick] (hk) to[out=-100, in=-80, looseness=1.8] (SPk.west);
-\node[blue, font=\scriptsize\itshape] at ($(hk)!0.5!(SPk.west)+(0,-3em)$) {Movimiento-qu};
-\end{tikzpicture}
 \end{document}

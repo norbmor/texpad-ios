@@ -2,8 +2,10 @@
 % Compile with pdflatex/xelatex/lualatex.
 \documentclass[tikz,border=8pt]{standalone}
 \usepackage[linguistics]{forest}
+\usetikzlibrary{calc}
 
 \begin{document}
+\begin{tikzpicture}
 \begin{forest}
   for tree={
     parent anchor=south,
@@ -12,49 +14,49 @@
     inner sep=2pt,
     s sep=1.1em,
     l sep=1.7em,
-    math content,
   }
-[\mathrm{SC}
-  [{\mathrm{SP}_k \\[-0.4ex] \scriptsize [+qu]}, name=SPk
-    [\mathrm{P}'
-      [\mathrm{P} [\mathrm{con}]]
-      [\mathrm{SN}
-        [\mathrm{N}'
-          [\mathrm{N} [{\text{qui\'en} \\[-0.4ex] \scriptsize [+qu]}]]
+[SC
+  [{SP\textsubscript{k}\\{\scriptsize[+qu]}}, name=SPk
+    [P'
+      [P [con]]
+      [SN
+        [N'
+          [N [{qui\'en\\{\scriptsize[+qu]}}]]
         ]
       ]
     ]
   ]
-  [\mathrm{C}'
-    [{\mathrm{C}_{[+Q,+qu]}}
-      [\mathrm{FLEX}_i, name=FLEXi
-        [\mathrm{V}_i [\text{bail\'o}]]
-        [\mathrm{T}]
+  [C'
+    [{C\textsubscript{[+Q,+qu]}}
+      [FLEX\textsubscript{i}, name=FLEXi
+        [V\textsubscript{i} [bail\'o]]
+        [T]
       ]
-      [{\mathrm{C}_{[+Q,+qu]}}]
+      [{C\textsubscript{[+Q,+qu]}}]
     ]
-    [\mathrm{SFLEX}
-      [\mathrm{SN}, roof [\text{la muchacha}]]
-      [\mathrm{FLEX}'
-        [h_j, name=hj]
-        [\mathrm{SV}
-          [\mathrm{V}'
-            [\mathrm{V}' [h_i, name=hi]]
-            [h_k, name=hk]
+    [SFLEX
+      [SN, roof [la muchacha]]
+      [FLEX'
+        [h\textsubscript{j}, name=hj]
+        [SV
+          [V'
+            [V' [h\textsubscript{i}, name=hi]]
+            [h\textsubscript{k}, name=hk]
           ]
         ]
       ]
     ]
   ]
 ]
-% --- movement arrows (forest lets you draw directly on named nodes here) ---
+\end{forest}
+% --- movement arrows, drawn in the same tikzpicture that forest nested into ---
 \draw[-latex, red!80!black, thick] (hi) to[bend right=25] (hj);
-\node[red!80!black, font=\tiny] at ($(hi)!0.5!(hj)$) [xshift=-1.4em] {$V\!\to\!\mathrm{FLEX}$};
+\node[red!80!black, font=\tiny] at ($(hi)!0.5!(hj)$) [xshift=-1.4em] {V$\to$FLEX};
 
 \draw[-latex, cyan!60!blue, thick] (hj) to[bend right=20] (FLEXi.south);
-\node[cyan!60!blue, font=\tiny] at ($(hj)!0.5!(FLEXi.south)$) [yshift=-1em] {$\mathrm{FLEX}\!\to\!\mathrm{C}$};
+\node[cyan!60!blue, font=\tiny] at ($(hj)!0.5!(FLEXi.south)$) [yshift=-1em] {FLEX$\to$C};
 
 \draw[-latex, blue, thick] (hk) to[out=-100, in=-80, looseness=1.8] (SPk.west);
 \node[blue, font=\scriptsize\itshape] at ($(hk)!0.5!(SPk.west)+(0,-3em)$) {Movimiento-qu};
-\end{forest}
+\end{tikzpicture}
 \end{document}

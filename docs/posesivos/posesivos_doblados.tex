@@ -21,6 +21,9 @@
 \usepackage{stmaryrd}
 \newcommand{\sem}[1]{\ensuremath{\llbracket #1 \rrbracket}}
 
+% ---------- Árboles sintácticos ----------
+\usepackage{forest}
+
 % ---------- Bibliografía (biber) ----------
 \usepackage[backend=biber,style=authoryear,maxcitenames=2,mincitenames=1,uniquename=false,uniquelist=false,sorting=nyt,dashed=false]{biblatex}
 \addbibresource{referencias.bib}
@@ -248,6 +251,35 @@ La única diferencia formal respecto de (5) es que el objeto evaluado no es un i
 \begin{exe}
 $[_{\text{SD}}\ D^0\ [_{\text{SExp}}\ \text{Exp}^0[\textit{su}]\ [_{n\text{P}}\ \text{blog}\ [_{\text{SC}}\ \textit{suyo de él}\, ]]]]$
 \end{exe}
+
+La representación arbórea correspondiente a (7) es la siguiente:
+
+\begin{center}
+\begin{forest}
+for tree={
+  parent anchor=south,
+  child anchor=north,
+  align=center,
+  edge={-},
+  l sep=14pt,
+  s sep=10pt,
+}
+[SD
+  [$D^0$]
+  [SExp
+    [$\mathrm{Exp}^0$
+      [\textit{su}]
+    ]
+    [$n$P
+      [blog]
+      [SC
+        [\textit{suyo de él}]
+      ]
+    ]
+  ]
+]
+\end{forest}
+\end{center}
 
 Este análisis modifica en un punto la propuesta de \textcite{eguren2018}, que sitúa el posesivo evaluativo en D\textsuperscript{0}. La modificación no es menor, pero es la que nuestros datos exigen: si el prenominal estuviera en D\textsuperscript{0} y el poseedor en la posición baja, la triplicación quedaría igualmente explicada, pero no se seguiría ni la orientación al hablante ni la proyección hiperactiva que documentamos en \S\,6.2, que son propiedades de los expresivos y no de los determinantes. La posición baja de Saab tiene además una motivación composicional: Exp\textsuperscript{0} y nP deben estar en la relación de hermandad que alimenta la Aplicación de IC.
 

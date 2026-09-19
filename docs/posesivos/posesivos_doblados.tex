@@ -23,6 +23,7 @@
 
 % ---------- Árboles sintácticos ----------
 \usepackage{forest}
+\usetikzlibrary{calc}
 
 % ---------- Bibliografía (biber) ----------
 \usepackage[backend=biber,style=authoryear,maxcitenames=2,mincitenames=1,uniquename=false,uniquelist=false,sorting=nyt,dashed=false]{biblatex}
@@ -297,14 +298,22 @@ Este análisis modifica en un punto la propuesta de \textcite{eguren2018}, que s
 \paragraph{La Aplicación de IC.} Lo que hace interesante al tipo $\langle e^a, t^c \rangle$ no es el tipo en sí, sino el axioma de \textcite{potts2005} que lo interpreta. Dado $\alpha$ de tipo $\langle \sigma^a, \tau^c \rangle$ y $\beta$ de tipo $\sigma^a$, hermanos en la estructura, el nodo madre se define así:
 
 \begin{center}
-\begin{tabular}{c}
-$\beta : \sigma^a$ \quad---\quad el argumento pasa arriba \textbf{intacto}\\[4pt]
-$\bullet$\\[4pt]
-$\alpha(\beta) : \tau^c$ \quad---\quad la IC se almacena \textbf{aparte}\\
-\end{tabular}
+\begin{tikzpicture}[
+  level distance=15mm,
+  sibling distance=34mm,
+  every node/.style={font=\normalsize}
+]
+\node (mother) {$\bullet$}
+  child { node (alpha) {$\alpha : \langle \sigma^a, \tau^c \rangle$} }
+  child { node (beta) {$\beta : \sigma^a$} };
+\node (atissue) at ($(mother)+(1.6,1.0)$) {$\beta : \sigma^a$};
+\node (ic) at ($(mother)+(-1.9,-0.3)$) {$\alpha(\beta) : \tau^c$};
+\draw (mother) -- (atissue);
+\draw (mother) -- (ic);
+\end{tikzpicture}
 \end{center}
 
-El punto crucial es que el nodo madre hereda $\beta$, no $\alpha(\beta)$: el expresivo no modifica en absoluto el significado veritativo-condicional, solo deposita una proposición en una dimensión paralela. De ahí que Saab hable de \textit{pure expressives}.
+El nodo madre hereda $\beta$ ---el argumento, sin alterar--- en la dimensión veritativo-condicional, y almacena $\alpha(\beta)$ en la dimensión paralela: el expresivo no modifica en absoluto el contenido proposicional, solo deposita una implicatura al margen. De ahí que Saab hable de \textit{pure expressives}.
 
 Aplicado a \textit{su blog suyo de él}, la derivación procede en tres pasos:
 \begin{enumerate}[label=\arabic*.,leftmargin=1.8em]

@@ -246,6 +246,17 @@ Proponemos que el posesivo prenominal de la construcción de doblado evaluativo 
 $\sem{\text{POS}_{\mathit{eval}}} = \lambda x.\, \text{Relevante}(s^c, \langle x, \pi(x) \rangle) : \langle e^a, t^c \rangle$ \quad [$\pi(x)$ = poseedor de $x$]
 \end{exe}
 
+La entrada (6) requiere alguna glosa:
+
+\begin{itemize}[leftmargin=2em]
+\item $\lambda x$ abstrae sobre el argumento \textit{at-issue}, que es la entidad poseída: lo que denota el nP con el que Exp\textsuperscript{0} se ensambla.
+\item $\text{Relevante}$ es el predicado que constituye el contenido de la implicatura convencional. Ocupa el lugar que en Saab ocupan $\text{Respeto}$ y $\text{Familiar}$.
+\item $s^c$ es el hablante del contexto. No es decoración: es lo que codifica la orientación al hablante y, por tanto, lo que hace la predicción sobre los datos de proyección de \S\,6.2.
+\item $\langle x, \pi(x) \rangle$ es el par ordenado poseído-poseedor. Es el objeto sobre el que se predica la relevancia.
+\item $\pi(x)$ es el poseedor de $x$.
+\item $\langle e^a, t^c \rangle$: toma un argumento de tipo $e$ en la dimensión veritativo-condicional y devuelve una proposición en la dimensión de la implicatura convencional.
+\end{itemize}
+
 La única diferencia formal respecto de (5) es que el objeto evaluado no es un individuo, sino la \textbf{relación} entre el poseído y su poseedor, establecida en la estructura baja. El tipo se mantiene, porque el argumento sigue siendo la entidad poseída. La estructura resultante para \textit{su blog suyo de él} es (7):
 
 \begin{exe}
@@ -282,6 +293,45 @@ for tree={
 \end{center}
 
 Este análisis modifica en un punto la propuesta de \textcite{eguren2018}, que sitúa el posesivo evaluativo en D\textsuperscript{0}. La modificación no es menor, pero es la que nuestros datos exigen: si el prenominal estuviera en D\textsuperscript{0} y el poseedor en la posición baja, la triplicación quedaría igualmente explicada, pero no se seguiría ni la orientación al hablante ni la proyección hiperactiva que documentamos en \S\,6.2, que son propiedades de los expresivos y no de los determinantes. La posición baja de Saab tiene además una motivación composicional: Exp\textsuperscript{0} y nP deben estar en la relación de hermandad que alimenta la Aplicación de IC.
+
+\paragraph{La Aplicación de IC.} Lo que hace interesante al tipo $\langle e^a, t^c \rangle$ no es el tipo en sí, sino el axioma de \textcite{potts2005} que lo interpreta. Dado $\alpha$ de tipo $\langle \sigma^a, \tau^c \rangle$ y $\beta$ de tipo $\sigma^a$, hermanos en la estructura, el nodo madre se define así:
+
+\begin{center}
+\begin{tabular}{c}
+$\beta : \sigma^a$ \quad---\quad el argumento pasa arriba \textbf{intacto}\\[4pt]
+$\bullet$\\[4pt]
+$\alpha(\beta) : \tau^c$ \quad---\quad la IC se almacena \textbf{aparte}\\
+\end{tabular}
+\end{center}
+
+El punto crucial es que el nodo madre hereda $\beta$, no $\alpha(\beta)$: el expresivo no modifica en absoluto el significado veritativo-condicional, solo deposita una proposición en una dimensión paralela. De ahí que Saab hable de \textit{pure expressives}.
+
+Aplicado a \textit{su blog suyo de él}, la derivación procede en tres pasos:
+\begin{enumerate}[label=\arabic*.,leftmargin=1.8em]
+\item El nP \textit{[blog [suyo de él]]} compone la relación de posesión y denota una entidad: el blog de él.
+\item Exp\textsuperscript{0} (\textit{su}) se ensambla como hermano de nP. Por Aplicación de IC, la dimensión \textit{at-issue} es $\sem{\textit{blog suyo de él}}$, sin alterar, y la dimensión de la IC es $\text{Relevante}(s^c, \langle \text{el blog de él}, \text{él} \rangle)$.
+\item D\textsuperscript{0} aporta la definitud sobre un argumento que ya es de tipo $e$.
+\end{enumerate}
+
+\paragraph{Predicciones de la formulación.} La entrada (6) no es una estipulación aislada: genera cuatro predicciones.
+\begin{itemize}[leftmargin=2em]
+\item \textbf{La alternancia con el artículo.} Si el prenominal no contribuye nada en la dimensión veritativo-condicional, \textit{su blog suyo de él} y \textit{el blog suyo de él} son veritativo-condicionalmente equivalentes. Esto es justamente lo que la bibliografía viene observando desde \textcite{companycompany2001} al señalar que el posesivo se aproxima al artículo: con este aparato, la observación se convierte en un teorema.
+\item \textbf{La proyección.} Una IC no está en el alcance de la negación, el condicional o los predicados de actitud, por definición de la lógica bidimensional. De ahí los 12 casos de \S\,6.2.
+\item \textbf{La orientación al hablante.} Se sigue de $s^c$ en la entrada léxica, no de ningún mecanismo sintáctico adicional.
+\item \textbf{La imposibilidad de contraste.} Una IC no puede focalizarse ni negarse, lo que explica que el posesivo evaluativo no sea contrastivo ---observación de \textcite{eguren2016} para el español frente al francés \textit{C'est mon livre à moi}--- sin necesidad de estipulación adicional.
+\end{itemize}
+
+\paragraph{Tres puntos que requieren mayor desarrollo.} La formulación de (6) deja abiertos tres problemas.
+
+\textbf{a) El tipo del argumento.} Saab argumenta que *\textit{el don médico} es agramatical por un choque de tipos: \textit{médico} denota $\langle e,t \rangle^a$ y el expresivo exige $e^a$; el problema, señala, «tiene que ver con la combinación sintáctica de tipos semánticos, no con su contenido». Esto exige que el nP de la construcción de doblado denote una entidad, no una propiedad: si fuera un predicado, la construcción debería ser imposible por la misma razón que *\textit{el don médico}. La salida es que el poseedor y la relación de posesión, establecidos en la estructura baja, saturan el nominal antes de que Exp\textsuperscript{0} se ensamble. Esto deriva, y no solo describe, la propiedad que \textcite{companycompanyhuertaflores2017} consideran definitoria del patrón (1): la alta individuación y determinación de ambos miembros (\textit{su departamento del soltero} frente a \textit{su departamento de soltero}). No es un rasgo pragmático añadido, sino el requisito de tipo del expresivo, lo que refuerza el argumento de \S\,6.3(d).
+
+\textbf{b) La naturaleza de $\pi$.} La afirmación de que (6) conserva el tipo de Saab es cierta solo bajo una lectura concreta de $\pi$, y las dos lecturas posibles no son equivalentes. En la \textbf{lectura 1}, $\pi$ es una función parcial del poseído a su poseedor, y el tipo es idéntico al de Saab, $\langle e^a, t^c \rangle$; el precio es que $\pi$ debe recuperar precisamente el poseedor que realiza el tónico, lo que, si se resuelve contextualmente, debilita el argumento sintáctico. En la \textbf{lectura 2}, la entrada es de dos lugares,
+\[
+\sem{\text{POS}_{\mathit{eval}}} = \lambda y.\lambda x.\, \text{Relevante}(s^c, \langle x, y \rangle) : \langle e^a, \langle e^a, t^c \rangle \rangle,
+\]
+donde $y$ es el poseedor realizado en la posición baja: sintácticamente más limpia, pero no conserva el tipo de Saab y exige una Aplicación de IC iterada que, en el sistema de Potts, es delicada, porque tras la primera aplicación el resultado ya está en la dimensión de la IC y no debería poder tomar más argumentos \textit{at-issue}. Un dato podría dirimir entre ambas: si la entrada fuera de dos lugares, el poseedor debería ser obligatorio. En nuestros datos siempre está realizado, pero esto no decide la cuestión, porque el diagnóstico de H2 es precisamente la triplicación, de modo que la presencia del poseedor está incorporada a la definición de la muestra. Dirimirlo exige casos de H2 identificados por otro diagnóstico.
+
+\textbf{c) El estatuto de $\text{Relevante}$.} Que $\text{Relevante}$ sea un primitivo no descriptivamente analizado es, hasta cierto punto, esperable: $\text{Respeto}$ y $\text{Familiar}$ lo son también en Saab. Pero en nuestro caso el contenido está peor delimitado: \textcite{companycompany1995} habla de relevancia, \textcite{risco2013} de empatía, \textcite{eguren2018} de proximidad o cercanía, y nuestro corpus no permite decidir si son la misma noción. A esto se suma una decisión no justificada explícitamente: Saab usa $s^c$ (el hablante) para \textit{don/doña} y $I^c$ (los interlocutores) para \textit{en/na}; aquí hemos optado por $s^c$, apoyándonos en la orientación al hablante que muestran los datos de proyección de \S\,6.2. Pero los hallazgos de \textcite{risco2013} ---referencias compartidas, visión del mundo común, empatía construida a lo largo del discurso--- apuntan más bien a $I^c$. Es una pregunta empírica abierta y, felizmente, contrastable: un contexto en el que el hablante evalúe la relación como cercana sabiendo que el oyente no comparte esa evaluación decidiría entre una opción y la otra.
 
 \subsection{Proyección hiperactiva: un diagnóstico aplicado al corpus}
 

@@ -1,0 +1,337 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Fuentes y lengua ----------
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage[spanish,es-noshorthands]{babel}
+
+% ---------- Maquetación ----------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Matemáticas y notación semántica ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\newcommand{\sem}[1]{\ensuremath{\llbracket #1 \rrbracket}}
+
+% ---------- Bibliografía (biber) ----------
+\usepackage[backend=biber,style=authoryear,maxcitenames=2,mincitenames=1,uniquename=false,uniquelist=false,sorting=nyt,dashed=false]{biblatex}
+\addbibresource{referencias.bib}
+
+% ---------- Hipervínculos ----------
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdftitle={Estrategias sintácticas para la expresión de la subjetividad: los posesivos doblados como expresivos},
+  pdflang={es}
+}
+
+% ---------- Entorno de ejemplos numerados ----------
+\newcounter{exnum}
+\newenvironment{exe}{%
+  \refstepcounter{exnum}%
+  \par\medskip\noindent\textbf{(\theexnum)}\quad\ignorespaces
+}{%
+  \par\medskip
+}
+\newenvironment{exlist}{%
+  \begin{enumerate}[label=\alph*., leftmargin=2.5em, itemsep=4pt, topsep=4pt]
+}{%
+  \end{enumerate}
+}
+
+\title{Estrategias sintácticas para la expresión de la subjetividad:\\ los posesivos doblados como expresivos}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{-2.5em}
+\begin{center}
+\textit{Borrador de análisis expresivo}
+\end{center}
+\vspace{1em}
+
+\tableofcontents
+\clearpage
+
+\section{Introducción}
+
+Bajo la etiqueta de \textit{construcciones de posesivo doblado} se engloban tres estructuras nominales en las que un posesivo átono prenominal aparece correferente con otro exponente del mismo poseedor dentro del sintagma nominal: un SP introducido por \textit{de}, (1); una oración de relativo, (2); o un posesivo tónico posnominal, (3).
+
+\begin{exe}
+\begin{exlist}
+\item \textbf{su hermano de mi papá}, \textbf{su hermana de mi mamá} (\textit{Agencia Perú}, 8/01/2003; NGLE 18.4h)
+\item \textbf{Su tío de usted}, fray Mariano, me aconseja\dots\ (Roa Bastos, \textit{Supremo}; NGLE 18.4i)
+\item \textbf{Mi santo de mí} lo han celebrado (de Granda 1997: 143)
+\end{exlist}
+\end{exe}
+
+\begin{exe}
+\begin{exlist}
+\item \textbf{Su casa que tiene Juan} (Company Company y Huerta Flores 2017)
+\item Tuvo \textbf{su oportunidad que le dio la historia}, pero renunció (NGLE 18.3k [Bolivia])
+\end{exlist}
+\end{exe}
+
+\begin{exe}
+\begin{exlist}
+\item yo suplique de dos çedulas pedidas \textbf{su pedimiento suyo} (Documentos administrativos, 1529, Cuba, CORDIAM)
+\item una joven maestra, \textbf{su hija suya}, y tres jóvenes fallecieron\dots\ (\textit{Hoy Digital}, 19-08-2015, R. Dominicana)
+\item poder pensionarme con \textbf{tu bendición tuya} (evangelizafuerte.mx, esTenTen23)
+\end{exlist}
+\end{exe}
+
+La bibliografía se ha ocupado casi exclusivamente de (1) y, en menor medida, de (2) \parencite{companycompany1994,companycompany1995,companycompany2001,companycompanyhuertaflores2017,granda1997,picallorigau1999,godenzzi2010,huertaflores2009,eguren2016,eguren2017b,rodriguezmondonedofafulas2016,rae2009}. El patrón (3) apenas ha recibido menciones de pasada.
+
+Este trabajo ofrece la primera descripción de corpus sistemática de (3) ---665 ejemplos válidos extraídos de 2.595 concordancias del corpus esTenTen23--- y propone un análisis formal. La tesis es doble. Primera: bajo la secuencia [Pos + N + Pos tónico] conviven \textbf{dos construcciones distintas}, una enfático-reflexiva de alcance panhispánico y otra evaluativa. Segunda: el posesivo evaluativo es un \textbf{expresivo puro} en el sentido de \textcite{potts2005}, analizable con el aparato que \textcite{saab2021} desarrolla para el artículo personal del catalán y el honorífico \textit{don/doña} del castellano.
+
+\section{Delimitación del objeto}
+
+Las construcciones estudiadas quedan delimitadas por un criterio único:
+
+\begin{quote}
+\textbf{Criterio de doble exponencia interna.} Hay doblado de posesivo cuando un mismo poseedor recibe \textbf{dos exponentes morfológicamente distintos dentro del mismo sintagma determinante}, uno de ellos el posesivo átono prenominal.
+\end{quote}
+
+El criterio exige (a) dos exponentes, (b) de series formales distintas y (c) contenidos en el mismo SD. De ahí se siguen cuatro exclusiones.
+
+\textbf{La posesión externa} (\textit{me duelen mis manos}) queda fuera por (c). Es la exclusión que más necesita justificarse, porque \textcite{rodriguezmondonedofafulas2016} tratan el doblado interno y el externo como un mismo fenómeno y documentan en el español amazónico bilingüe casos como \textit{me falta mi jabón} o \textit{anda que te voltees tu cuaderno}. Nuestra razón es que en \textit{me duelen mis manos} el dativo es externo al SD y satisface caso en el dominio verbal: el SD contiene un solo exponente. De ello se sigue una consecuencia empírica que justifica la separación: la posesión externa \textbf{no admite triplicación} (*\textit{me duelen mis manos mías}, *\textit{me duelen mis manos de mí}), porque no hay dos posiciones que llenar. Nuestros 41 casos de triplicación son todos, sin excepción, de posesión interna.
+
+\textbf{La sustitución del artículo por posesivo} (\textit{pónetelo tu vestido}; \textit{sus canoa} con valor de pluralidad distributiva, \textcite{morenofernandez2022}) queda fuera por (a): hay un solo exponente en el SD, y la discordancia afecta a la morfología de concordancia, no a la duplicación.
+
+\textbf{La falta de correferencia} (\textit{mi libro favorito suyo} `el libro de él que es mi favorito'; \textit{mi cólera suya} `mi cólera hacia él') queda fuera porque no hay un mismo poseedor, sino dos poseedores o un poseedor y un argumento (NGLE 18.4j).
+
+\textbf{Las estructuras predicativas y resultativas} (\textit{haz tu hogar tuyo}, \textit{hacen tus proyectos suyos}) quedan fuera por (c) en otra variante: el tónico es predicado de una cláusula reducida cuyo sujeto es el SD, no un constituyente de él.
+
+El criterio es descriptivo y no prejuzga el análisis: no presupone que (1), (2) y (3) respondan a un mismo mecanismo, y de hecho sostenemos que ni siquiera (3) es homogéneo.
+
+\section{Antecedentes: del valor desambiguador al valor evaluativo}
+
+Se ha señalado que, en origen, el doblado de tercera persona tendría carácter desambiguador, dada la ambigüedad referencial de \textit{su} \parencite{companycompany1994,companycompany1995,huertaflores2009}. Sin embargo, ya en el español medieval hay ejemplos no desambiguadores, y en el español americano actual son los mayoritarios.
+
+En esos casos, la construcción muestra el punto de vista del hablante sobre la relación entre poseedor y poseído: «cuanto más prominente sea el poseedor dentro de la situación comunicativa y más estrecha e indispensable la relación entre el poseído y el poseedor, más probabilidades habrá de que aparezca una construcción posesiva duplicada» \parencite[188]{companycompanyhuertaflores2017}. \textcite{risco2013}, sobre datos de español peruano, muestra que el uso está condicionado discursivamente: el 85\,\% de las producciones aparecen precedidas de tres o más referencias léxicas a la entidad poseída, el 74\,\% de tres o más referencias anafóricas al poseedor, y el 85\,\% van seguidas de tres o más menciones ulteriores del poseedor.
+
+\textcite{eguren2016,eguren2018,eguren2019} integra el fenómeno en una clase mayor. Junto al posesivo afectivo con nombre propio (\textit{mi Sofía}) y al llamado posesivo enfático (\textit{me tomo mi cafecito}), el posesivo del doblado sería un \textbf{posesivo evaluativo}: no aporta valor posesivo real, sino que evalúa la relación entre poseedor y poseído, expresa cercanía o inherencia, no es contrastivo y alterna con el artículo definido. \textcite{eguren2023} precisa además que los posesivos enfáticos ratifican una relación de posesión preexistente y se comportan como \textbf{anáforas}, es decir, como reflexivos que exigen antecedente local, junto a los pronombres enfáticos y el dativo aspectual.
+
+Sobre el origen del fenómeno, \textcite{granda1997} distingue dos líneas. La hispanista atribuye el doblado actual a la retención de la construcción medieval peninsular, viva hasta el Siglo de Oro. La indigenista lo vincula al contacto con lenguas que marcan doblemente la posesión ---quechua, aimara, nahua, maya---. De Granda observa que la extensión americana actual coincide con las zonas en que el castellano local está o estuvo en contacto con esas variedades \parencite[146]{granda1997}, y \textcite{godenzzi2010} añade que donde las lenguas originarias carecen de doblado, o donde no se hablaba quechua ni aimara, tampoco se documenta en español. \textcite[187]{companycompanyhuertaflores2017} sostienen una hipótesis de causación múltiple: el contacto «habrían contribuido a su productividad», si bien «la semántica y pragmática de los dobles posesivos no coincide necesariamente con la semántica de la doble posesión de las lenguas de adstrato». \textcite{rodriguezmondonedofafulas2016} concluyen en el mismo sentido para el español amazónico. Nuestro trabajo no dirime esa cuestión, pero el análisis de \S\,6 es compatible con ella: lo que el contacto reforzaría es la disponibilidad de una configuración sintáctica, no el contenido expresivo que la construcción vehicula, que es de origen románico.
+
+\textcite{eguren2016} rechaza, frente a \textcite{companycompany1995}, que la construcción codifique inalienabilidad: los nombres documentados no se ajustan a una definición semántica precisa de inalienabilidad. Nuestros datos lo confirman: \textit{mi compu}, \textit{tu blog}, \textit{su status quo}, \textit{mi opinión}, \textit{tu ITIN} no son inalienables en ningún sentido técnico. Lo que la construcción marca es proximidad o relevancia evaluada por el hablante.
+
+\section{Estudio de corpus}
+
+\subsection{Datos y depuración}
+
+Los datos proceden de una consulta sobre esTenTen23 (Sketch Engine) con la secuencia \texttt{[tag="DP.*"][tag="A.*"]\{0,1\}[tag="N.*"][tag="A.*"]\{0,1\}[tag="AP.*"]}, que devolvió \textbf{2.595 concordancias}, anotadas en su totalidad atendiendo al contexto de cada ocurrencia. Por aplicación del criterio de \S\,2 se descartaron \textbf{1.930 (74,4\,\%)}:
+
+\begin{longtable}{@{}p{10cm}r@{}}
+\toprule
+Motivo de exclusión & N \\
+\midrule
+\endhead
+Discordancia de persona sin correferencia (\textit{su hija Mía}, \textit{mi libro favorito suyo}) & 1.337 \\
+Vocativo o apelativo (\textit{amiga mía}, \textit{Madre mía}) & 124 \\
+Predicativo o resultativo (\textit{haz tu hogar tuyo}) & 113 \\
+Nombre propio o apellido (\textit{Mía}, \textit{Tuya}, \textit{Suyo}) & 75 \\
+Error de segmentación o etiquetado (\textit{su expansión tuyo lugar}, por \textit{tuvo}) & 68 \\
+Título de obra (\textit{Nuestra ciudad mía}, \textit{Tuyo es el reino}) & 38 \\
+Poseedores distintos (\textit{nuestros favoritos suyos}) & 34 \\
+Texto generado automáticamente & 33 \\
+Nombre comercial o de entidad (tarjeta \textit{Tuya}, \textit{Teatro Tuyo}) & 28 \\
+Fórmula fija (\textit{padre nuestro}, \textit{suyo afmo.}) & 23 \\
+Otros (transcripción defectuosa, texto lírico, aposición) & 57 \\
+\bottomrule
+\end{longtable}
+
+La discordancia de persona es el mejor predictor de la no correferencia: de 1.424 concordancias con posesivos de persona distinta, solo 9 resultaron correferentes. Quedan \textbf{665 ejemplos válidos}.
+
+\subsection{Distribución por dominios y persona}
+
+La atribución dialectal se basa en el dominio de primer nivel, que identifica el servidor y no al emisor. Con esa cautela: 101 ejemplos en dominios españoles (15,2\,\%), 155 en americanos (23,3\,\%) y 409 en dominios no localizables (61,5\,\%). El reparto americano es Argentina 56, México 39, Chile 14, Colombia 14, Cuba 11, Perú 9 y otros 12.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Zona & 1S & 2S & 3S & 1P & 2P & 3P & Total & \% 3.\textsuperscript{a} p. \\
+\midrule
+Dominios españoles  & 23  & 16  & 46  & 15 & 0 & 1 & 101 & 46,5 \\
+Dominios americanos & 30  & 25  & 67  & 31 & 0 & 2 & 155 & 44,5 \\
+No localizables     & 101 & 68  & 194 & 37 & 4 & 5 & 409 & 48,7 \\
+\midrule
+\textbf{Total} & \textbf{154} & \textbf{109} & \textbf{307} & \textbf{83} & \textbf{4} & \textbf{8} & \textbf{665} & \textbf{47,4} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tres resultados. Primero, \textbf{la construcción no está ausente del español europeo}: los 101 ejemplos peninsulares aparecen en registros diversos, desde medios generalistas (\textit{sus colaboradores suyos}, 20minutos.es) hasta textos institucionales (\textit{nuestro caso concreto nuestro}, congreso.es). Segundo, \textbf{el 52,6\,\% son de primera o segunda persona}, lo que excluye que la construcción, en su conjunto, tenga origen o función desambiguadora: \textit{mi}, \textit{tu}, \textit{nuestro} no son referencialmente ambiguos. Tercero, \textbf{el perfil de persona es prácticamente idéntico en los tres grupos}: la variable que discrimina nítidamente el patrón (1) no discrimina variedades en el patrón (3).
+
+\subsection{Contextos diagnósticos}
+
+De los 665 ejemplos, 205 (30,8\,\%) presentan un contexto que permite diagnosticar el valor de la construcción; los 460 restantes carecen de marca distintiva.
+
+\textbf{a) Triplicación de la marca posesiva: 41 ejemplos.} El tónico va seguido de un SP posesivo correferente:
+
+\begin{exe}
+\begin{exlist}
+\item PLATICA CILER EN \textbf{SU BLOG SUYO DE ÉL} (blogspot.com)
+\item flores en \textbf{su pelo suyo de ella} (informador.mx)
+\item es «Bajo \textbf{su propia responsabilidad suya de ustedes}» (enlamira.com.mx)
+\item fozar en \textbf{sus elucubraciones suyas de usted} (galiciae.com)
+\item siempre oigo \textbf{tu programa tuyo de ti} (blogspot.com)
+\item Tengo todos \textbf{mis dientes míos de mí} (fabio.com.ar)
+\item En \textbf{mi casa mía de mí}, a la que está usted cordialmente invitado (blogspot.com)
+\item van a tener que ir a lavarse \textbf{sus manos suyas de su propiedad de ustedes} (blogspot.com)
+\end{exlist}
+\end{exe}
+
+\textbf{b) Coordinación del tónico con un SP introducido por \textit{de}: 59 ejemplos} (\textit{nuestra preocupación mía y de su familia}, cverdad.org.pe; \textit{tu ITIN tuyo y de tu cónyuge}, solodinero.com). La mayoría son de primera persona del plural: la coordinación no duplica el poseedor, sino que lo \textbf{descompone} (\textit{nuestro} = `mío y de X'), función que el patrón (1) no desempeña.
+
+\textbf{c) Contextos cuantificados, partitivos o con demostrativo: 47 ejemplos} (\textit{uno de sus libros suyo}, \textit{todos sus discos suyos}, \textit{esa su extraña esposa suya}, \textit{estas tus afirmaciones tuyas}), incompatibles con el patrón (1), que rechaza la cuantificación.
+
+\textbf{d) Contraste explícito o énfasis marcado: 30 ejemplos} (\textit{mi primera cámara mía y solo mía}, \textit{tu luna tuya y solamente tuya}, \textit{a todas mis enfermeras mías, mías, sólo mías}).
+
+\textbf{e) Locuciones fijas: 15 ejemplos}, casi todos del esquema \textit{muy a mi/tu/su/nuestro pesar mío/tuyo/suyo/nuestro}.
+
+\textbf{f) Intensificador \textit{propio} o \textit{mismo}: 13 ejemplos} (\textit{su propio nombre suyo}, \textit{tus propios siervos tuyos}, \textit{mis propias manos mías}).
+
+Se documentan además \textbf{discordancias de número y género} entre los dos posesivos (\textit{sus zapatos suyo}, \textit{sus artículo suyo}, \textit{mi obra Mío}, \textit{su pene suya}) y \textbf{9 casos de discordancia de persona con correferencia efectiva}, con prenominal de cortesía y tónico de segunda persona (\textit{su gran admiradora tuya}, aeromental.com; \textit{su fan tuya}; \textit{sus RT tuyos}; \textit{su aplicación tuya}).
+
+\section{Dos construcciones bajo una misma secuencia}
+
+Los resultados de \S\,4 plantean una paradoja. La construcción se documenta con normalidad en el español europeo y su perfil de persona es idéntico al americano, lo que sugiere una única construcción panhispánica; pero la bibliografía describe el doblado como rasgo diferencial del español americano. La solución que proponemos es que bajo la secuencia superficial conviven dos construcciones.
+
+\begin{quote}
+\textbf{H1 (enfático-reflexiva).} El prenominal es un posesivo \textbf{canónico} y el tónico posnominal es un \textbf{elemento enfático} de la clase de \textcite{eguren2023}: un reflexivo no argumental, opcional, que ratifica una relación de posesión previamente establecida y toma su referencia de un antecedente local. Da cuenta de los 164 ejemplos con diagnóstico (b)--(f).
+
+\textbf{H2 (evaluativa).} El prenominal es un \textbf{expresivo} que no realiza el poseedor; el poseedor se realiza en la posición baja, y el tónico es la variante pronominal de esa posición, alternativa al SP [\textit{de} SD] del patrón (1). Da cuenta de los 41 ejemplos de triplicación.
+\end{quote}
+
+El diagnóstico decisivo es la triplicación. H1 no puede generar \textit{su blog suyo de él}, porque el tónico enfático y el SP compiten por la misma posición argumental; solo si el prenominal no es el poseedor queda libre esa posición para el SP. Simétricamente, H2 no genera \textit{uno de sus libros suyo}, porque el expresivo es incompatible con la estructura partitiva. Los dos diagnósticos son mutuamente excluyentes y \textbf{ninguno de los 665 ejemplos los presenta a la vez}.
+
+\section{El posesivo evaluativo como expresivo puro}
+
+\subsection{El modelo}
+
+Adoptamos para H2 el modelo que \textcite{saab2021} desarrolla, sobre los hallazgos de \textcite{bernstein2019}, para el artículo personal del catalán (\textit{en Pere}, \textit{na Maria}) y el honorífico castellano \textit{don/doña}. Saab sostiene que ambos son \textbf{expresivos puros} en el sentido de \textcite{potts2005}: funciones que toman una entidad como argumento, \textbf{devuelven la misma entidad en el nivel veritativo-condicional} y añaden una proposición implicada convencionalmente en una dimensión de significado paralela. El tipo semántico es $\langle e^a, t^c \rangle$, donde los superíndices distinguen la dimensión \textit{at-issue} de la dimensión de la implicatura convencional, y la composición se rige por el axioma de Aplicación de IC \parencite[64]{potts2005}. Las entradas léxicas que propone Saab son (5):
+
+\begin{exe}
+\begin{exlist}
+\item $\sem{\textit{don/doña}} = \lambda x.\, \text{Respeto}(s^c, x) : \langle e^a, t^c \rangle$ \quad [$s^c$ = hablante del contexto]
+\item $\sem{\textit{en/na}} = \lambda x.\, \text{Familiar}(I^c, x) : \langle e^a, t^c \rangle$ \quad [$I^c$ = interlocutores del contexto]
+\end{exlist}
+\end{exe}
+
+Sintácticamente, Saab etiqueta la proyección como SExp (Exp\textsuperscript{0}) y ---este es el punto crucial--- la sitúa \textbf{en posición baja, como hermana de nP}, siguiendo a Bernstein et al.: los efectos de adyacencia obligan a abandonar la idea corriente de que el artículo personal es una proyección de D.
+
+Proponemos que el posesivo prenominal de la construcción de doblado evaluativo pertenece a esta clase. La implicatura convencional que introduce es la que la bibliografía viene describiendo desde \textcite{companycompany1995} en términos de proximidad, relevancia o cercanía evaluada por el hablante. Su entrada léxica sería (6):
+
+\begin{exe}
+$\sem{\text{POS}_{\mathit{eval}}} = \lambda x.\, \text{Relevante}(s^c, \langle x, \pi(x) \rangle) : \langle e^a, t^c \rangle$ \quad [$\pi(x)$ = poseedor de $x$]
+\end{exe}
+
+La única diferencia formal respecto de (5) es que el objeto evaluado no es un individuo, sino la \textbf{relación} entre el poseído y su poseedor, establecida en la estructura baja. El tipo se mantiene, porque el argumento sigue siendo la entidad poseída. La estructura resultante para \textit{su blog suyo de él} es (7):
+
+\begin{exe}
+$[_{\text{SD}}\ D^0\ [_{\text{SExp}}\ \text{Exp}^0[\textit{su}]\ [_{n\text{P}}\ \text{blog}\ [_{\text{SC}}\ \textit{suyo de él}\, ]]]]$
+\end{exe}
+
+Este análisis modifica en un punto la propuesta de \textcite{eguren2018}, que sitúa el posesivo evaluativo en D\textsuperscript{0}. La modificación no es menor, pero es la que nuestros datos exigen: si el prenominal estuviera en D\textsuperscript{0} y el poseedor en la posición baja, la triplicación quedaría igualmente explicada, pero no se seguiría ni la orientación al hablante ni la proyección hiperactiva que documentamos en \S\,6.2, que son propiedades de los expresivos y no de los determinantes. La posición baja de Saab tiene además una motivación composicional: Exp\textsuperscript{0} y nP deben estar en la relación de hermandad que alimenta la Aplicación de IC.
+
+\subsection{Proyección hiperactiva: un diagnóstico aplicado al corpus}
+
+La prueba más robusta de expresividad en la dimensión de IC es la \textbf{proyección hiperactiva}: el significado expresivo escapa al alcance de los operadores veritativo-condicionales ---negación, interrogación, condicional, predicados de actitud--- y se atribuye siempre al hablante del contexto. Saab la aplica a \textit{don/doña} y a \textit{en/na} con juicios construidos. Nuestro corpus permite aplicarla a datos atestiguados.
+
+De los 41 ejemplos de triplicación, \textbf{12 aparecen bajo un operador de este tipo}. Los casos son inequívocos:
+
+\begin{exe}
+\begin{exlist}
+\item no se avergüencen, \textbf{no es su culpa suya de ustedes}, es ella (wordpress.com) [negación]
+\item \textbf{No tienen su perdón suyo de él} (blogspot.com) [negación]
+\item si lo desean hacer es «bajo \textbf{su propia responsabilidad suya de ustedes}» (enlamira.com.mx) [condicional]
+\item No puedo escribir \textbf{si no es con mi compu mía de mí} (blogspot.com) [negación + condicional]
+\item tiene miedo de ir a recibir \textbf{su legítima propiedad privadísima suya de él} (over-blog.es) [predicado de actitud]
+\item creo, basado exclusivamente en \textbf{mis gustos personales míos de mí}, que\dots\ (blogspot.com) [predicado de actitud]
+\end{exlist}
+\end{exe}
+
+En todos ellos la implicatura de proximidad \textbf{sobrevive al operador}. En (8a) se niega la culpabilidad, no la cercanía de la relación entre los interlocutores y la culpa que se les atribuía; en (8e) el miedo se predica del referente, pero la evaluación de la propiedad como cercana a él es del hablante, no del sujeto de \textit{tener miedo}. La orientación al hablante se comprueba en (8f), donde el prenominal evaluativo convive con un verbo de actitud en primera persona sin que la evaluación quede subordinada a él.
+
+El contraste con H1 es el esperable. Los 164 ejemplos enfático-reflexivos no muestran ese comportamiento: por ser anáforas que exigen antecedente local \parencite{eguren2023}, su contribución es \textit{at-issue} y queda dentro del alcance de los operadores. De hecho, 38 de ellos aparecen en contextos de proyección y en ninguno se observa escape: en \textit{mi primera cámara mía y solo mía} el contraste es precisamente el tipo de contenido que la negación puede atacar, algo imposible para una implicatura convencional.
+
+\subsection{Tres propiedades que el análisis explica}
+
+\textbf{a) El prenominal por defecto y las discordancias.} Si Exp\textsuperscript{0} no realiza el poseedor, sus rasgos $\varphi$ no se determinan por concordancia con él. De ahí las discordancias de número y género que documentamos (\textit{sus zapatos suyo}, \textit{mi obra Mío}) y, sobre todo, los 9 casos de discordancia de persona con correferencia efectiva (\textit{su gran admiradora tuya}). El hallazgo converge con \textcite{rodriguezmondonedofafulas2016}, que documentan \textit{su trabajo de nosotros} en el español amazónico bilingüe, descartan por contexto que \textit{su} remita a otro referente y proponen que \textit{su} funciona como \textbf{forma por defecto} en las estructuras de doblado genitivo, en paralelo con el \textit{lo} generalizado del español andino.
+
+Esto zanja además el viejo paralelismo con el doblado de clíticos que sugiere la NGLE y desarrollan \textcite{companycompanyhuertaflores2017}. Como argumenta \textcite{eguren2019}, son construcciones distintas, y nuestros datos lo confirman por una vía nueva: \textbf{un clítico doblador concuerda obligatoriamente con su asociado; un núcleo expresivo, no}.
+
+\textbf{b) La restricción de persona desaparece.} El patrón (1) está restringido a la tercera persona y a la segunda de cortesía; \textcite{companycompanyhuertaflores2017} llegan a marcar con asterisco *\textit{mi(s)/*tu(s) N de N}. Pero el patrón (2) no tiene restricción alguna ---aparece «en las tres personas gramaticales del posesivo, singular o plural»--- y el patrón (3) tampoco: el 52,6\,\% de nuestros ejemplos son de primera o segunda persona, y 18 de las 41 triplicaciones lo son. Rodríguez-Mondoñedo y Fafulas documentan además \textit{mi nombre de mí}, \textit{mi vida de mí}, \textit{nuestra preocupación de nosotros} en el patrón (1) del español amazónico, una variedad en la que esa restricción expresamente no se cumple.
+
+El análisis expresivo lo explica sin estipulaciones: \textbf{si el prenominal no es el poseedor argumental, no hay razón para que porte los rasgos de persona del poseedor}. La restricción del patrón (1) no se sigue de la estructura, sino de su origen desambiguador, ligado a la ambigüedad referencial de \textit{su}. Los dos esquemas que nunca tuvieron función desambiguadora no la heredaron. La generalización es, por tanto:
+
+\begin{quote}
+La restricción de tercera persona es propiedad del exponente [\textit{de} SD] en determinadas variedades, no de la posición expresiva.
+\end{quote}
+
+\textbf{c) La opcionalidad.} \textcite{rodriguezmondonedofafulas2016} ofrecen una formalización rival: en las variedades con doblado, el núcleo genitivo \textit{small-n} se incorpora a D y se realiza como el determinante posesivo; donde una variedad no dobladora deletrea \textit{la}, una dobladora deletrea \textit{su}. Coincide con nuestra propuesta en que el prenominal no es el poseedor, pero difiere en aquello de lo que es exponente: núcleo de caso sin contenido semántico frente a núcleo expresivo.
+
+Sus propios datos favorecen la segunda opción. Si la incorporación fuera paramétrica, el doblado debería ser la forma general de la posesión interna en esas variedades; pero representa el 6,5\,\% de las construcciones posesivas entre los bilingües bora-español y el 3,1\,\% entre los monolingües de Iquitos. Una incorporación obligatoria no genera tasas del 3 al 6\,\%. La construcción es opcional y sensible al contexto discursivo ---relevancia, empatía, prominencia del poseedor \parencite{risco2013}---, que es exactamente lo que predice un núcleo que introduce una implicatura convencional y no un rasgo de caso. Cabe una división del trabajo: su propuesta explica la \textbf{disponibilidad} de la configuración; la expresiva explica su \textbf{uso}.
+
+\textbf{d) La individuación.} \textcite[192--193]{companycompanyhuertaflores2017} señalan como propiedades definitorias del patrón (1) el rechazo de la cuantificación y de la coordinación, y la alta individuación y determinación de ambos miembros: si el poseedor no es determinado, «la construcción no es posesiva sino especificativa» (\textit{su departamento del soltero} frente a \textit{su departamento de soltero}). Un núcleo de caso incorporado no predice nada de esto. Un expresivo de tipo $\langle e^a, t^c \rangle$ sí lo predice, porque exige un argumento que denote una entidad y no un predicado: es la misma razón por la que \textcite{saab2021} explica la incompatibilidad de \textit{don/doña} con usos predicativos. Nótese que la asimetría interna de nuestros datos apunta en esa dirección: los 47 ejemplos en contexto cuantificado o partitivo pertenecen todos a H1, y ninguno a H2.
+
+\subsection{Un problema pendiente: la adyacencia}
+
+Los expresivos de \textcite{saab2021} muestran adyacencia estricta con el nombre, y esa adyacencia es la que motiva su posición baja. Nuestros datos no la muestran: hay material interpuesto en \textit{su legítima propiedad privadísima suya}, \textit{sus propias manos suyas}, \textit{su macho marido suyo}, \textit{mis gustos personales míos}.
+
+No ocultamos la dificultad, pero observamos que los elementos interpuestos no son de cualquier clase. Son intensificadores (\textit{propio}, \textit{mismo}) y adjetivos de valoración (\textit{legítima}, \textit{privadísima}, \textit{macho}), es decir, material que plausiblemente pertenece a la misma dimensión expresiva. Si esa observación es correcta, la adyacencia relevante no sería lineal sino de dominio: Exp\textsuperscript{0} sería hermano de una proyección que ya contiene material expresivo. Comprobarlo exige un examen de la modificación adjetival en la construcción que dejamos para trabajo futuro.
+
+\section{Predicciones y limitaciones}
+
+El análisis genera predicciones contrastables, algunas de ellas específicas del modelo expresivo:
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.5em]
+\item \textbf{Proyección.} En juicios controlados, la implicatura de proximidad del posesivo evaluativo deberá proyectar fuera de negación, interrogación, condicional y predicados de actitud, y atribuirse siempre al hablante. El posesivo enfático-reflexivo de H1 no deberá proyectar. \S\,6.2 ofrece un primer apoyo de corpus; la comprobación sistemática requiere elicitación.
+\item \textbf{Inefabilidad descriptiva.} Como expresivo puro, el posesivo evaluativo no deberá admitir paráfrasis veritativo-condicional sin pérdida: \textit{su blog suyo de él} no equivale a \textit{el blog de él, que le es cercano}, donde el contenido pasa a ser atacable.
+\item \textbf{Incompatibilidad con predicados.} Si el expresivo toma argumentos de tipo $e^a$, deberá resultar incompatible con usos genuinamente predicativos del SN, en paralelo con lo que \textcite{saab2021} muestra para \textit{don/doña}.
+\item \textbf{Juicios dialectales.} Los hablantes peninsulares deberán aceptar \textit{mi juego favorito mío} o \textit{uno de tus propios siervos tuyos} con normalidad, y \textit{su blog suyo de él} o \textit{mi casa mía de mí} solo con lectura marcada. Los hablantes de las áreas de doblado deberán aceptar ambas series como no marcadas.
+\item \textbf{Correlación intraparadigmática.} La productividad del patrón (3) deberá correlacionar mejor con la del patrón (2) ---que comparte con él la ausencia de restricción de persona--- que con la del patrón (1). Es contrastable en corpus históricos ya anotados, y no depende de la geolocalización por dominio.
+\item \textbf{Tasa de uso.} La configuración expresiva deberá mostrar tasas bajas y sensibles al contexto, no aproximarse a la generalidad. El 3,1\,\% y el 6,5\,\% del español amazónico, y el 1\,\% peninsular frente al 24\,\% mexicano que \textcite{reyesmendoza2000} documenta para el patrón (2), ofrecen el rango esperable. Una variedad con doblado cuasiobligatorio falsaría el análisis expresivo y apoyaría el de incorporación paramétrica.
+\end{enumerate}
+
+En cuanto a las limitaciones, la principal es que \textbf{la geolocalización por dominio no es geolocalización de hablantes}. El 61,5\,\% de los ejemplos procede de dominios genéricos, y los cuatro casos de triplicación en dominios españoles ilustran el riesgo: uno está alojado en una plataforma de blogs francesa, otro trata de la petroquímica mexicana, y los dos restantes son del mismo autor satírico, que explota la redundancia como recurso humorístico. Ninguno es un contraejemplo limpio, pero tampoco cabe afirmar la ausencia de la configuración en español europeo sobre esta base. La diferencia dialectal debe formularse, por tanto, en términos de \textbf{productividad y no de disponibilidad}, siguiendo el modelo cuantitativo de \textcite{reyesmendoza2000}.
+
+La segunda limitación es que 460 de los 665 ejemplos (69,2\,\%) carecen de contexto diagnóstico y son compatibles con ambos análisis: la hipótesis se sostiene sobre el tercio que discrimina. La tercera es común a todo corpus web: los datos son producciones escritas, y la construcción está ligada mayoritariamente al habla popular.
+
+\section{Conclusiones}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.5em]
+\item La construcción [Pos + N + Pos tónico] \textbf{no está ausente del español europeo} y su perfil de persona es indistinguible del americano.
+\item El \textbf{52,6\,\% de los ejemplos son de primera o segunda persona}, lo que excluye un origen o una función desambiguadora para el conjunto de la construcción.
+\item Bajo la secuencia conviven \textbf{dos construcciones}: una enfático-reflexiva, anafórica y \textit{at-issue}, y una evaluativa.
+\item El posesivo evaluativo es un \textbf{expresivo puro} en el sentido de \textcite{potts2005}, analizable con el aparato de \textcite{saab2021}: un núcleo Exp\textsuperscript{0} de tipo $\langle e^a, t^c \rangle$, hermano de nP, que devuelve la entidad poseída en la dimensión veritativo-condicional y añade una implicatura de proximidad en la dimensión paralela. Ello obliga a revisar la ubicación en D\textsuperscript{0} que propone \textcite{eguren2018}.
+\item La \textbf{proyección hiperactiva}, documentada en 12 de los 41 casos de triplicación, es la prueba empírica del estatuto expresivo, y separa H2 de H1.
+\item La \textbf{restricción de tercera persona} es propiedad del exponente [\textit{de} SD] en determinadas variedades, no de la posición expresiva; de ahí que desaparezca en los patrones (2) y (3) y en variedades amazónicas del patrón (1).
+\item Las \textbf{discordancias} de persona, número y género muestran que el prenominal es una forma por defecto y no un elemento en relación de concordancia, lo que confirma la distinción entre doblado de posesivos y doblado de clíticos \parencite{eguren2019}.
+\end{enumerate}
+
+\clearpage
+\nocite{camacho1995,eguren2017a,napuri2018,saabloguercio2020}
+\printbibliography[title={Referencias}]
+
+\bigskip
+\noindent\textit{Pendiente de completar}: datos de edición del volumen de Company Company y Huerta Flores (2017); publicación de Eguren (2017a); volumen y páginas de Moreno-Fernández (2022); datos completos de Reyes Mendoza (2000), citada de segunda mano; verificación de Bernstein et al. (2019) y Saab y Lo Guercio (2020), citados a través de Saab (2021).
+
+\end{document}
